@@ -9,17 +9,13 @@ This API allows a secure login using a private key on a smart phone running SecS
 
 **Files**
 
-secsignid-example.js
-secsignid-server.js
-SecSignIDApi.nodejs.js
-
 * `SecSignIDApi.nodejs.js` - The SecSign ID Node.js Api itself. The file contains the module SecSignIDApi which contains two exported classes: SecSignIDApi and AuthSession
 * `secsignid-example.js` - A small example how to request and check an authentication session on serverside.
 * `secsignid-server.js` - A small example of a webserver based on Node.js framework. The webserver will accept and redirect some requests to the SecSign ID Server. The requested and checked authentication session data is sent to the browser.
-* `web-example/index.html` - html page ot be used by the webserver example.
-* `web-example/access-pass.html` - html page ot be used by the webserver example.
-* `web-example/login-success.html` - html page ot be used by the webserver example.
-* `web-example/error.html` - html page ot be used by the webserver example.
+* `web-example/index.html` - html page to be used by the webserver example.
+* `web-example/access-pass.html` - html page to be used by the webserver example.
+* `web-example/login-success.html` - html page to be used by the webserver example.
+* `web-example/error.html` - html page to be used by the webserver example.
 
 
 ===============
