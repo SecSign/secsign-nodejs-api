@@ -1,0 +1,46 @@
+<html><head><title>SecSign ID Api example</title></head>
+
+<body>
+
+<h1>SecSign ID Api example</h1>
+<br /><br /><br />
+
+<span style="color:#009900;font-weight:bold">%msg%</span>
+
+<br /><br />
+
+<form action='.' method='post'>
+
+<input type='hidden' name='requestid' value='%requestid%' />
+<input type='hidden' name='secsignid' value='%secsignid%' />
+<input type='hidden' name='authsessionid' value='%authsessionid%' />
+<input type='hidden' name='servicename' value='%servicename%' />
+<input type='hidden' name='serviceaddress' value='%serviceaddress%' />
+<input type='hidden' name='authsessionicondata' value='%icondata%' />
+
+<table>
+<tr>
+<td colspan='2'>
+Please verify the access pass using your smartphone.<br>Choose the correct one by tapping on it. After that please click OK: <br /><br/>
+</td>
+</tr>
+<tr>
+<td colspan='2'>
+<div style='background-color:#98bde2;color:#FFF;padding:10px;margin:10px;font-size:1.6em;text-align:center;'>
+<img src="data:image/png;base64,%icondata%">
+</div><br /><br />
+</td>
+</tr>
+<tr>
+<td align='left'>
+<button type ='submit' name='cancel' value='1' style='width:100px'>Cancel</button>
+</td>
+<td align='right'>
+<button type ='submit' name='check' value='1' style='width:100px'>OK</button>
+</td>
+</tr>
+</table>
+</form>
+</body>
+
+</html>
