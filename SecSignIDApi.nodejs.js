@@ -1,4 +1,4 @@
-// $Id: SecSignIDApi.nodejs.js,v 1.1 2015/03/24 17:38:01 titus Exp $
+// $Id: SecSignIDApi.nodejs.js,v 1.2 2015/03/25 16:20:50 titus Exp $
 
 
 /*!
@@ -16,7 +16,7 @@ var https = require('https');
  * user id which is called secsign id. 
  * Each authentication session generation needs a new instance of this class.
  *
- * @version $Id: SecSignIDApi.nodejs.js,v 1.1 2015/03/24 17:38:01 titus Exp $
+ * @version $Id: SecSignIDApi.nodejs.js,v 1.2 2015/03/25 16:20:50 titus Exp $
  * @author SecSign Technologies Inc.
  */
 function SecSignIDApi(options){
@@ -111,7 +111,7 @@ SecSignIDApi.prototype.sendRequest = function(requestDataObj, callbackFunction){
         			var idx = parts[i].indexOf("=");
             		if(idx > -1){
                 		var key = parts[i].substring(0, idx).trim();
-                		if(key){
+                		if(key && key.length){
 							receivedDataObject[key] = parts[i].substring(idx+1).trim();
 						}
                     }
@@ -242,7 +242,7 @@ SecSignIDApi.prototype.releaseAuthSession = function(options, callbackFunction) 
 /**
  * Javascript class to encapsulate an object with data about an authentication session
  *
- * @version $Id: SecSignIDApi.nodejs.js,v 1.1 2015/03/24 17:38:01 titus Exp $
+ * @version $Id: SecSignIDApi.nodejs.js,v 1.2 2015/03/25 16:20:50 titus Exp $
  * @author SecSign Technologies Inc.
  */
 function AuthSession(authSession){
