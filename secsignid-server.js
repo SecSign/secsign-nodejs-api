@@ -1,4 +1,4 @@
-// $Id: secsignid-server.js,v 1.1 2015/03/24 17:38:01 titus Exp $
+// $Id: secsignid-server.js,v 1.2 2015/04/16 15:51:36 titus Exp $
 
 
 /*!
@@ -48,11 +48,11 @@ var server = http.createServer(function(request, response) {
 		
 		
 		var hostname = request.headers.host;
+
 		var uri = url.parse(request.url).pathname;
-    	var file = path.join(process.cwd(), uri);
+    	var file = path.join(path.join(process.cwd(), "/web-example/"), uri);
     	var pathname = path.parse(file).dir;
     	var exists = fs.existsSync(file);
-    	
     	if(exists && fs.statSync(file).isDirectory()){
     		pathname = file;
     	}
