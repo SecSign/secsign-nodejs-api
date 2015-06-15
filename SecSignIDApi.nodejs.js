@@ -1,5 +1,3 @@
-// $Id: SecSignIDApi.nodejs.js,v 1.2 2015/03/25 16:20:50 titus Exp $
-
 
 /*!
  * (c) 2015 SecSign Technologies Inc.
@@ -10,13 +8,16 @@ var querystring = require('querystring');
 var http = require('http');
 var https = require('https');
 
+// version string
+var SECSIGNID_NODEJS_API_VERSION = "1.3";
+
+
 /**
  * Javascript class to connect to a secsign id server. 
  * The class will check secsign id server certificate and request for an authentication session for a given
  * user id which is called secsign id. 
  * Each authentication session generation needs a new instance of this class.
  *
- * @version $Id: SecSignIDApi.nodejs.js,v 1.2 2015/03/25 16:20:50 titus Exp $
  * @author SecSign Technologies Inc.
  */
 function SecSignIDApi(options){
@@ -49,7 +50,8 @@ function SecSignIDApi(options){
     	return _options;
     };
     
-    this.log("instanceoptions: ", _options);
+    this.log("instance version: ", SECSIGNID_NODEJS_API_VERSION);
+    this.log("instanceoptions : ", _options);
 }
 
 
@@ -242,7 +244,6 @@ SecSignIDApi.prototype.releaseAuthSession = function(options, callbackFunction) 
 /**
  * Javascript class to encapsulate an object with data about an authentication session
  *
- * @version $Id: SecSignIDApi.nodejs.js,v 1.2 2015/03/25 16:20:50 titus Exp $
  * @author SecSign Technologies Inc.
  */
 function AuthSession(authSession){
