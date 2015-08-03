@@ -9,7 +9,7 @@ var http = require('http');
 var https = require('https');
 
 // version string
-var SECSIGNID_NODEJS_API_VERSION = "1.3";
+var SECSIGNID_NODEJS_API_VERSION = "1.5";
 
 
 /**
@@ -138,20 +138,25 @@ SecSignIDApi.prototype.sendRequest = function(requestDataObj, callbackFunction){
 //
 SecSignIDApi.prototype.requestAuthSession = function(options, callbackFunction) {
 	if(! options.secsignid){
-		throw "SecSign ID field 'secsignid' is null.";
+		throw new Error("SecSign ID field 'secsignid' is null.");
 	}
 	if(! options.servicename){
-	   throw "Servicename field 'servicename' is null.";
+	   throw new Error("Servicename field 'servicename' is null.");
 	}
 	if(! options.serviceaddress){
-	   throw "Serviceaddress field 'serviceaddress' is null.";
+	   throw new Error("Serviceaddress field 'serviceaddress' is null.");
 	}
-
+	
+	var secsignid = options.secsignid.toLowerCase().trim();
+	if(! secsignid){
+	   throw new Error("SecSign ID field 'secsignid' is null.");
+	}
+	
 	// create request object
 	var request	= {
-		"secsignid" : options.secsignid,
-		"servicename" : options.servicename,
-		"serviceaddress" : options.serviceaddress,
+		"secsignid" : secsignid,
+		"servicename" : options.servicename.trim(),
+		"serviceaddress" : options.serviceaddress.trim(),
 		"request" : 'ReqRequestAuthSession'
 	};
 	
@@ -165,18 +170,18 @@ SecSignIDApi.prototype.requestAuthSession = function(options, callbackFunction) 
 //
 SecSignIDApi.prototype.getAuthSessionState = function(options, callbackFunction) {
 	if(! options.secsignid){
-		throw "SecSign ID field 'secsignid' is null.";
+		throw new Error("SecSign ID field 'secsignid' is null.");
 	}
 	if(! options.requestid){
-	   throw "Request ID field 'requestid' is null.";
+	   throw new Error("Request ID field 'requestid' is null.");
 	}
 	if(! options.authsessionid){
-	   throw "Authentication session ID field 'authsessionid' is null.";
+	   throw new Error("Authentication session ID field 'authsessionid' is null.");
 	}
 
 	// create request object
 	var request	= {
-		"secsignid" : options.secsignid,
+		"secsignid" : options.secsignid.toLowerCase(),
 		"requestid" : options.requestid,
 		"authsessionid" : options.authsessionid,
 		"request" : 'ReqGetAuthSessionState'
@@ -192,18 +197,18 @@ SecSignIDApi.prototype.getAuthSessionState = function(options, callbackFunction)
 //
 SecSignIDApi.prototype.cancelAuthSession = function(options, callbackFunction) {
 	if(! options.secsignid){
-		throw "SecSign ID field 'secsignid' is null.";
+		throw new Error("SecSign ID field 'secsignid' is null.");
 	}
 	if(! options.requestid){
-	   throw "Request ID field 'requestid' is null.";
+	   throw new Error("Request ID field 'requestid' is null.");
 	}
 	if(! options.authsessionid){
-	   throw "Authentication session ID field 'authsessionid' is null.";
+	   throw new Error("Authentication session ID field 'authsessionid' is null.");
 	}
 
 	// create request object
 	var request	= {
-		"secsignid" : options.secsignid,
+		"secsignid" : options.secsignid.toLowerCase(),
 		"requestid" : options.requestid,
 		"authsessionid" : options.authsessionid,
 		"request" : 'ReqCancelAuthSession'
@@ -219,18 +224,18 @@ SecSignIDApi.prototype.cancelAuthSession = function(options, callbackFunction) {
 //
 SecSignIDApi.prototype.releaseAuthSession = function(options, callbackFunction) {
 	if(! options.secsignid){
-		throw "SecSign ID field 'secsignid' is null.";
+		throw new Error("SecSign ID field 'secsignid' is null.");
 	}
 	if(! options.requestid){
-	   throw "Request ID field 'requestid' is null.";
+	   throw new Error("Request ID field 'requestid' is null.");
 	}
 	if(! options.authsessionid){
-	   throw "Authentication session ID field 'authsessionid' is null.";
+	   throw new Error("Authentication session ID field 'authsessionid' is null.");
 	}
 	
 	// create request object
 	var request	= {
-		"secsignid" : options.secsignid,
+		"secsignid" : options.secsignid.toLowerCase(),
 		"requestid" : options.requestid,
 		"authsessionid" : options.authsessionid,
 		"request" : 'ReqReleaseAuthSession'
