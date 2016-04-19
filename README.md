@@ -1,11 +1,11 @@
-# SecSign ID Node.js Interface
+# SecSign ID Node.js Interface / 2FA API
 
 **Overview**
 
-SecSign ID Api is a two-factor authentication for Node.js
+SecSign ID Api is a two-factor authentication api for Node.js
 
 This API allows a secure login using a private key on a smart phone running SecSign ID by SecSign Technologies Inc.
-A complete tutorial is found at <https://www.secsign.com/nodejs-tutorial/> or just visit <https://www.secsign.com> for more information.
+A complete tutorial for how to use the Node.js Api is found at <https://www.secsign.com/nodejs-tutorial/> or just visit <https://www.secsign.com> for more information.
  
 **Files**
 
@@ -76,7 +76,7 @@ var receivedAuthSessionStateCallback = function(authSessionObj){
             //release authSession and log user in
             secSignIDApi.releaseAuthSession(authSession, userIsLoggedInCallback);
             
-            // now, we can login user herer at our backend/system etc
+            // now, we can login user here at our backend/system etc
         }
     }
 };
